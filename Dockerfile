@@ -1,22 +1,23 @@
-# Usar a imagem base do OpenJDK 17
-FROM ubunto:latest AS build
+# Usar uma imagem base do Maven para construir o projeto
+FROM maven:3.8.4-openjdk-11 AS build
 
-RUN apt-get update
-RUN apt-get install openjdk:17-jdk -y
+# Definir o diretório de trabalho
+WORKDIR /app
 
+# Copiar o código fonte do projeto para o contêiner
 COPY . .
 
-RUN apt-get install maven -y
+# Construir o projeto Maven
+RUN mvn clean install -X
 
-RUN mvn clean install
+# Usar uma imagem base do OpenJDK para executar a aplicação
+FROM openjdk:11-jre-slim
 
+# Definir o diretório de trabalho
+WORKDIR /app
 
-FROM openjdk:17-jdk-slim
+# Copiar o JAR da fase de build para a fase de produção
+COPY --from=build /app/target/projeto-0.0.1-SNAPSHOT.jar app.jar
 
-EXPOSE 8008
-
-COPY --from=build /target/projeto-0.0.1-SNAPSHOT.jar app.jar
-
-# Definir o comando de entrada
-ENTRYPOINT ["java","-jar","/app.jar"]
-
+# Comando para executar a aplicação
+CMD ["java", "-jar", "app.jar"]
