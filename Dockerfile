@@ -1,23 +1,20 @@
-# Usar uma imagem base do Maven para construir o projeto
-FROM maven:3.8.4-openjdk-11 AS build
+# Use an OpenJDK base image with JDK 17
+FROM openjdk:17-jdk-slim
 
-# Definir o diretório de trabalho
+# Set the working directory
 WORKDIR /app
 
-# Copiar o código fonte do projeto para o contêiner
-COPY . .
+# Copy the pom.xml and the source code
+COPY pom.xml .
+COPY src ./src
 
-# Construir o projeto Maven
+# Install Maven
+RUN apt-get update && \
+    apt-get install -y maven && \
+    rm -rf /var/lib/apt/lists/*
+
+# Build the project
 RUN mvn clean install -X
 
-# Usar uma imagem base do OpenJDK para executar a aplicação
-FROM openjdk:11-jre-slim
-
-# Definir o diretório de trabalho
-WORKDIR /app
-
-# Copiar o JAR da fase de build para a fase de produção
-COPY --from=build /app/target/projeto-0.0.1-SNAPSHOT.jar app.jar
-
-# Comando para executar a aplicação
-CMD ["java", "-jar", "app.jar"]
+# Set the default command to run your app
+CMD ["java", "-jar", "target/your-app.jar"]
