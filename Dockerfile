@@ -8,13 +8,11 @@ WORKDIR /app
 COPY pom.xml .
 COPY src ./src
 
-# Install Maven
+# Install Maven and build the project
 RUN apt-get update && \
     apt-get install -y maven && \
+    mvn clean install -DskipTests && \
     rm -rf /var/lib/apt/lists/*
 
-# Build the project
-RUN mvn clean install -X
-
 # Set the default command to run your app
-CMD ["java", "-jar", "target/your-app.jar"]
+CMD ["java", "-jar", "target/projeto-0.0.1-SNAPSHOT.jar"]
