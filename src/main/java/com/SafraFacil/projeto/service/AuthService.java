@@ -20,6 +20,9 @@ public class AuthService {
     @Autowired
     private JwtUtils jwtUtils;
 
+    @Autowired
+    private UserDetailServiceImpl userDetailService;
+
     public AcessDTO login(AuthenticationDTO authDto) {
         try {
             // Cria mecanismo de credencial para o spring
@@ -40,6 +43,16 @@ public class AuthService {
 
         } catch (BadCredentialsException e) {
             // TODO LOGIN OU SENHA INVALIDO
+        }
+        return new AcessDTO("Acesso negado", null);
+    }
+    // Novo método para renovar o token
+    public AcessDTO renewToken(String oldToken) {
+        if (jwtUtils.validateJwtToken(oldToken)) {
+            String username = jwtUtils.getUsernameToken(oldToken);
+            UserDetailsImpl userDetails = (UserDetailsImpl) userDetailService.loadUserByUsername(username);
+            String newToken = jwtUtils.generateTokenFromUserDetailsImpl(userDetails);
+            return new AcessDTO(newToken, userDetails.getId());
         }
         return new AcessDTO("Acesso negado", null);
     }

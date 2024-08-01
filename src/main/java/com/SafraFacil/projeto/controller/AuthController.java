@@ -68,4 +68,10 @@ public class AuthController {
         usuarioService.redefinirSenha(login, novaSenha);
         return ResponseEntity.ok("Senha redefinida com sucesso");
     }
+
+    @PostMapping("/renew-token")
+    public ResponseEntity<AcessDTO> renewToken(@RequestHeader("Authorization") String token) {
+        String jwt = token.substring(7); // Remove "Bearer " prefix
+        return ResponseEntity.ok(authService.renewToken(jwt));
+    }
 }

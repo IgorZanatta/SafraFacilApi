@@ -1,6 +1,8 @@
 package com.SafraFacil.projeto.service;
 
+import com.SafraFacil.projeto.dto.SafraDTO;
 import com.SafraFacil.projeto.dto.SetorDTO;
+import com.SafraFacil.projeto.entity.SafraEntity;
 import com.SafraFacil.projeto.entity.SetorEntity;
 import com.SafraFacil.projeto.repository.SetorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +42,11 @@ public class SetorService {
 
     public List<SetorDTO> listarPorFazenda(Long fazendaId) {
         List<SetorEntity> setores = setorRepository.findByFazendaId(fazendaId);
+        return setores.stream().map(SetorDTO::new).collect(Collectors.toList());
+    }
+
+    public List<SetorDTO> listarPorUsuario(Long usuarioId) {
+        List<SetorEntity> setores = setorRepository.findByUsuarioId(usuarioId);
         return setores.stream().map(SetorDTO::new).collect(Collectors.toList());
     }
 }

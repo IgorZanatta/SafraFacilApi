@@ -1,5 +1,6 @@
 package com.SafraFacil.projeto.controller;
 
+import com.SafraFacil.projeto.dto.SafraDTO;
 import com.SafraFacil.projeto.dto.SetorDTO;
 import com.SafraFacil.projeto.dto.TipoDTO;
 import com.SafraFacil.projeto.service.SetorService;
@@ -109,6 +110,11 @@ public class TipoController {
     public ResponseEntity<Void> excluir(@PathVariable("id") Long id){
         tipoService.excluir(id);
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/usuario/{usuarioId}")
+    public List<TipoDTO> listarPorUsuario(@PathVariable Long usuarioId) {
+        return tipoService.listarPorUsuario(usuarioId);
     }
 
     private Date convertStringToDate(String dateString) throws ParseException {

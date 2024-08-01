@@ -1,5 +1,6 @@
 package com.SafraFacil.projeto.controller;
 
+import com.SafraFacil.projeto.dto.SafraDTO;
 import com.SafraFacil.projeto.dto.SetorDTO;
 import com.SafraFacil.projeto.service.SetorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,4 +42,10 @@ public class SetorController {
     public ResponseEntity<List<SetorDTO>> listarPorFazenda(@PathVariable Long fazendaId) {
         return ResponseEntity.ok(setorService.listarPorFazenda(fazendaId));
     }
+
+    @GetMapping("/usuario/{usuarioId}")
+    public List<SetorDTO> listarPorUsuario(@PathVariable Long usuarioId) {
+        return setorService.listarPorUsuario(usuarioId);
+    }
+
 }

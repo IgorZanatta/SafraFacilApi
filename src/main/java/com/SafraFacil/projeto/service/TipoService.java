@@ -1,7 +1,9 @@
 package com.SafraFacil.projeto.service;
 
+import com.SafraFacil.projeto.dto.SafraDTO;
 import com.SafraFacil.projeto.dto.SetorDTO;
 import com.SafraFacil.projeto.dto.TipoDTO;
+import com.SafraFacil.projeto.entity.SafraEntity;
 import com.SafraFacil.projeto.entity.SetorEntity;
 import com.SafraFacil.projeto.entity.TipoEntity;
 import com.SafraFacil.projeto.repository.TipoRepository;
@@ -75,6 +77,12 @@ public class TipoService {
         TipoEntity tipoEntity = tipoRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Tipo não encontrado"));
         return new TipoDTO(tipoEntity);
+    }
+
+    @Transactional(readOnly = true)
+    public List<TipoDTO> listarPorUsuario(Long usuarioId) { // Certifique-se de que este método esteja correto
+        List<TipoEntity> tipos = tipoRepository.findByUsuarioId(usuarioId);
+        return tipos.stream().map(TipoDTO::new).collect(Collectors.toList());
     }
 
     private SetorEntity convertSetorDTOToEntity(SetorDTO setorDTO) {
