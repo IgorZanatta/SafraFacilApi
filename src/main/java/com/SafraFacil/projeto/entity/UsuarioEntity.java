@@ -11,11 +11,9 @@ import org.springframework.beans.BeanUtils;
 import java.time.Instant;
 import java.util.Objects;
 
+
 @Entity
 @Table(name = "SF_USUARIO")
-@Getter
-@Setter
-@NoArgsConstructor
 public class UsuarioEntity {
 
     @Id
@@ -48,16 +46,83 @@ public class UsuarioEntity {
         BeanUtils.copyProperties(usuario, this);
     }
 
+    public UsuarioEntity(){
+
+    }
+
+    public TipoSituacaoUsuario getSituacao() {
+        return situacao;
+    }
+
+    public void setSituacao(TipoSituacaoUsuario situacao) {
+        this.situacao = situacao;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public Integer getCodigoVerificacao() {
+        return codigoVerificacao;
+    }
+
+    public void setCodigoVerificacao(Integer codigoVerificacao) {
+        this.codigoVerificacao = codigoVerificacao;
+    }
+
+    public Instant getDataExpiracaoCodigo() {
+        return dataExpiracaoCodigo;
+    }
+
+    public void setDataExpiracaoCodigo(Instant dataExpiracaoCodigo) {
+        this.dataExpiracaoCodigo = dataExpiracaoCodigo;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof UsuarioEntity)) return false;
-        UsuarioEntity that = (UsuarioEntity) o;
+        if (!(o instanceof UsuarioEntity that)) return false;
         return Objects.equals(getId(), that.getId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId());
+        return Objects.hashCode(getId());
     }
 }
