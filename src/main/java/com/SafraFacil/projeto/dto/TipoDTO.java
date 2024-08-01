@@ -1,6 +1,5 @@
 package com.SafraFacil.projeto.dto;
 
-import com.SafraFacil.projeto.entity.SetorEntity;
 import com.SafraFacil.projeto.entity.TipoEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

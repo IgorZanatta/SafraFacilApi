@@ -3,9 +3,6 @@ package com.SafraFacil.projeto.entity;
 import com.SafraFacil.projeto.dto.UsuarioDTO;
 import com.SafraFacil.projeto.entity.enums.TipoSituacaoUsuario;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.springframework.beans.BeanUtils;
 
 import java.time.Instant;

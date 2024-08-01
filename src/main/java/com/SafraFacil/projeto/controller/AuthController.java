@@ -3,18 +3,14 @@ package com.SafraFacil.projeto.controller;
 import com.SafraFacil.projeto.dto.AuthenticationDTO;
 import com.SafraFacil.projeto.dto.AcessDTO;
 import com.SafraFacil.projeto.dto.UsuarioDTO;
-import com.SafraFacil.projeto.entity.UsuarioEntity;
 import com.SafraFacil.projeto.service.AuthService;
 import com.SafraFacil.projeto.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
-import java.time.Instant;
 import java.util.Map;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/auth")

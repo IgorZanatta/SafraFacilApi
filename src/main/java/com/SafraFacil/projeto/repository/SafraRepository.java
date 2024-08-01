@@ -1,6 +1,5 @@
 package com.SafraFacil.projeto.repository;
 
-import com.SafraFacil.projeto.entity.FazendaEntity;
 import com.SafraFacil.projeto.entity.SafraEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -1,15 +1,11 @@
 package com.SafraFacil.projeto.controller;
 
 import com.SafraFacil.projeto.dto.UsuarioDTO;
-import com.SafraFacil.projeto.entity.enums.TipoSituacaoUsuario;
 import com.SafraFacil.projeto.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 

@@ -1,9 +1,7 @@
 package com.SafraFacil.projeto.service;
 
-import com.SafraFacil.projeto.dto.SafraDTO;
 import com.SafraFacil.projeto.dto.SetorDTO;
 import com.SafraFacil.projeto.dto.TipoDTO;
-import com.SafraFacil.projeto.entity.SafraEntity;
 import com.SafraFacil.projeto.entity.SetorEntity;
 import com.SafraFacil.projeto.entity.TipoEntity;
 import com.SafraFacil.projeto.repository.TipoRepository;

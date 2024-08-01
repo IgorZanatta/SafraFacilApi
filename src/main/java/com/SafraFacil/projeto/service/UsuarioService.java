@@ -11,14 +11,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 import java.util.UUID;
-import java.util.stream.Collectors;
+
 @Service
 public class UsuarioService {
 
@@ -90,7 +89,7 @@ public class UsuarioService {
         verificador.setDataExpiracao(Instant.now().plusMillis(900000));
         usuarioVerificadorRepository.save(verificador);
 
-        String verificationLink = "https://safrafacilapi.onrender.com/auth/verificarCadastro/" + verificador.getUuid();
+        String verificationLink = "http://localhost:8080/auth/verificarCadastro/" + verificador.getUuid();
         String message = "<html><body>" +
                 "<p>Clique no botão para verificar seu cadastro:</p>" +
                 "<a href='" + verificationLink + "' style='display: inline-block; padding: 10px 20px; font-size: 16px; color: #fff; background-color: #007bff; text-decoration: none; border-radius: 5px; cursor: pointer;'>Verificar Cadastro</a>" +

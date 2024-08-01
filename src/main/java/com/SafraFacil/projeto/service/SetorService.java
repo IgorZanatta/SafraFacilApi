@@ -1,8 +1,6 @@
 package com.SafraFacil.projeto.service;
 
-import com.SafraFacil.projeto.dto.SafraDTO;
 import com.SafraFacil.projeto.dto.SetorDTO;
-import com.SafraFacil.projeto.entity.SafraEntity;
 import com.SafraFacil.projeto.entity.SetorEntity;
 import com.SafraFacil.projeto.repository.SetorRepository;
 import org.springframework.beans.factory.annotation.Autowired;

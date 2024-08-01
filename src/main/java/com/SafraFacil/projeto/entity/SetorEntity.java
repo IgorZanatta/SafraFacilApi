@@ -7,8 +7,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.beans.BeanUtils;
 
-import java.util.Set;
-
 @Entity
 @Table(name = "SF_SETOR")
 @Getter

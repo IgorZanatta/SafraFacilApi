@@ -1,6 +1,5 @@
 package com.SafraFacil.projeto.controller;
 
-import com.SafraFacil.projeto.dto.FazendaDTO;
 import com.SafraFacil.projeto.dto.SafraDTO;
 import com.SafraFacil.projeto.service.SafraService;
 import org.springframework.beans.factory.annotation.Autowired;

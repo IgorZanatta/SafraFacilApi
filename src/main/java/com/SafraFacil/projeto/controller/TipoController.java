@@ -1,6 +1,5 @@
 package com.SafraFacil.projeto.controller;
 
-import com.SafraFacil.projeto.dto.SafraDTO;
 import com.SafraFacil.projeto.dto.SetorDTO;
 import com.SafraFacil.projeto.dto.TipoDTO;
 import com.SafraFacil.projeto.service.SetorService;
@@ -15,7 +14,6 @@ import java.util.Date;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 @RestController

@@ -1,15 +1,14 @@
 package com.SafraFacil.projeto.service;
 
+import com.SafraFacil.projeto.dto.AcessDTO;
+import com.SafraFacil.projeto.dto.AuthenticationDTO;
+import com.SafraFacil.projeto.security.jwt.JwtUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
-
-import com.SafraFacil.projeto.dto.AcessDTO;
-import com.SafraFacil.projeto.dto.AuthenticationDTO;
-import com.SafraFacil.projeto.security.jwt.JwtUtils;
 
 @Service
 public class AuthService {
