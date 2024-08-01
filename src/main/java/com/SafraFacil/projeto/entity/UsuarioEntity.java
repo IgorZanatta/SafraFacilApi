@@ -11,7 +11,6 @@ import org.springframework.beans.BeanUtils;
 import java.time.Instant;
 import java.util.Objects;
 
-
 @Entity
 @Table(name = "SF_USUARIO")
 @Getter
@@ -49,7 +48,16 @@ public class UsuarioEntity {
         BeanUtils.copyProperties(usuario, this);
     }
 
-    public UsuarioEntity(){
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof UsuarioEntity)) return false;
+        UsuarioEntity that = (UsuarioEntity) o;
+        return Objects.equals(getId(), that.getId());
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId());
     }
 }
