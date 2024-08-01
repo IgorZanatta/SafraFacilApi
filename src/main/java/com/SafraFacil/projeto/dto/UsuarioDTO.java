@@ -10,6 +10,9 @@ import org.springframework.beans.BeanUtils;
 
 import java.time.Instant;
 
+@Getter
+@Setter
+@NoArgsConstructor
 public class UsuarioDTO {
 
     private Long id;
@@ -35,69 +38,5 @@ public class UsuarioDTO {
 
     public UsuarioDTO(){
 
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public TipoSituacaoUsuario getSituacao() {
-        return situacao;
-    }
-
-    public void setSituacao(TipoSituacaoUsuario situacao) {
-        this.situacao = situacao;
-    }
-
-    public Integer getCodigoVerificacao() {
-        return codigoVerificacao;
-    }
-
-    public void setCodigoVerificacao(Integer codigoVerificacao) {
-        this.codigoVerificacao = codigoVerificacao;
-    }
-
-    public Instant getDataExpiracaoCodigo() {
-        return dataExpiracaoCodigo;
-    }
-
-    public void setDataExpiracaoCodigo(Instant dataExpiracaoCodigo) {
-        this.dataExpiracaoCodigo = dataExpiracaoCodigo;
     }
 }
