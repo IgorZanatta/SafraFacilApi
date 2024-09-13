@@ -37,6 +37,13 @@ public class TipoController {
         return ResponseEntity.ok(tipoService.listarPorSetor(setorId));
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<TipoDTO> buscarPorId(@PathVariable Long id) {
+        TipoDTO tipoDTO = tipoService.buscarPorId(id);
+        return ResponseEntity.ok(tipoDTO);
+    }
+
+
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public void inserir(@RequestParam("tipo_atividade") String tipoAtividade,
                         @RequestParam("gasto") String gasto,

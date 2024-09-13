@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.beans.BeanUtils;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "SF_SETOR")
 @Getter
@@ -31,6 +33,9 @@ public class SetorEntity {
     @JoinColumn(name = "fazenda_id", nullable = false)
     private FazendaEntity fazenda;
 
+    // Adicionando relacionamento com TipoEntity
+    @OneToMany(mappedBy = "setor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<TipoEntity> tipos;
 
     public SetorEntity(SetorDTO setor) {
         BeanUtils.copyProperties(setor, this);

@@ -25,6 +25,14 @@ public class TipoService {
         return tipos.stream().map(TipoDTO::new).collect(Collectors.toList());
     }
 
+    @Transactional(readOnly = true)
+    public TipoDTO buscarPorId(Long id) {
+        TipoEntity tipoEntity = tipoRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Tipo não encontrado"));
+        return new TipoDTO(tipoEntity);
+    }
+
+
     @Transactional
     public void inserir(TipoDTO tipoDTO) {
         TipoEntity tipoEntity = new TipoEntity(tipoDTO);
@@ -68,13 +76,6 @@ public class TipoService {
         TipoEntity tipo = tipoRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Tipo não encontrado"));
         tipoRepository.delete(tipo);
-    }
-
-    @Transactional(readOnly = true)
-    public TipoDTO buscarPorId(Long id) {
-        TipoEntity tipoEntity = tipoRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Tipo não encontrado"));
-        return new TipoDTO(tipoEntity);
     }
 
     @Transactional(readOnly = true)

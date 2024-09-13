@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.beans.BeanUtils;
 
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -16,6 +18,9 @@ public class SetorDTO {
     private String tipo_setor;
     private String tamanho;
     private FazendaDTO fazenda;
+
+    // Adicionando lista de tipos de atividade
+    private List<TipoDTO> tipos;
 
     public SetorDTO(SetorEntity setor) {
         BeanUtils.copyProperties(setor, this);

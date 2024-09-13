@@ -21,6 +21,17 @@ public class SetorController {
         return setorService.listarTodos();
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<SetorDTO> buscarPorId(@PathVariable Long id) {
+        SetorDTO setor = setorService.buscarPorId(id);
+        if (setor != null) {
+            return ResponseEntity.ok(setor);
+        } else {
+            return ResponseEntity.notFound().build();  // Caso o setor não seja encontrado
+        }
+    }
+
+
     @PostMapping
     public void inserir(@RequestBody SetorDTO setor) {
         setorService.inserir(setor);
